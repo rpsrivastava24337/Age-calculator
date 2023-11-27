@@ -1,6 +1,7 @@
 let enterDate = document.getElementById("date")// store and access user input date 
 enterDate.max = new Date().toISOString().split("T")[0]; // set limit of the calendar to only select today date and previous Dates.
-
+let age = document.getElementById("age")
+age.style.visibility = ("hidden")
 
 function calcAge() {
 
@@ -60,7 +61,7 @@ function calcAge() {
 
     // Display the age of the user after calculation
 
-    let age = document.getElementById("age")
+    age.style.visibility = ("visible")
 
     age.innerHTML = `Your are ${ageYear} years , ${ageMonth} months and ${ageDay} days old...`
 
