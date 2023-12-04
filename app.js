@@ -45,7 +45,7 @@ function calcAge() {
     }
     else {
         ageMonth--
-        todayDate = (monthsDay(inputYear, inputMonth) + todayDate )- inputDate
+        ageDate = (monthsDay(inputYear, inputMonth) + todayDate )- inputDate
 
     }
 
