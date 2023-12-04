@@ -10,14 +10,14 @@ function calcAge() {
     let enteryear = new Date(enterDate.value)
 
     let inputYear = enteryear.getFullYear()
-    let inputMonth = enteryear.getMonth() + 1 // add 1 to month because the moth start in js with Zero(0)
+    let inputMonth = enteryear.getMonth() + 1 // add 1 to month because the month start in js with Zero(0)
     let inputDate = enteryear.getDate()
 
     // Today Date
 
     let today = new Date()
     let todayYear = today.getFullYear()
-    let todayMonth = today.getMonth() + 1 // add 1 to month because the moth start in js with Zero(0)
+    let todayMonth = today.getMonth() + 1 // add 1 to month because the month start in js with Zero(0)
     let todayDate = today.getDate()
 
 
@@ -45,7 +45,7 @@ function calcAge() {
     }
     else {
         todayMonth--
-        todayDate = monthsDay(todayYear, todayMonth) + todayDate - inputDate
+        todayDate = (monthsDay(todayYear, todayMonth) + todayDate )- inputDate
 
     }
 
