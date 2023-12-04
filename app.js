@@ -1,5 +1,5 @@
-let enterDate = document.getElementById("date")// store and access user input date 
-enterDate.max = new Date().toISOString().split("T")[0]; // set limit of the calendar to only select today date and previous Dates.
+let userInput = document.getElementById("date")// store and access user input date 
+userInput.max = new Date().toISOString().split("T")[0]; // set limit of the calendar to only select today date and previous Dates.
 let age = document.getElementById("age")
 age.style.visibility = ("hidden")
 
@@ -7,51 +7,51 @@ function calcAge() {
 
     // user input date 
 
-    let enteryear = new Date(enterDate.value)
+    let birthDate = new Date(userInput.value)
 
-    let inputYear = enteryear.getFullYear()
-    let inputMonth = enteryear.getMonth() + 1 // add 1 to month because the month start in js with Zero(0)
-    let inputDate = enteryear.getDate()
+    let yearOfBirth = birthDate.getFullYear()
+    let monthOfBirth = birthDate.getMonth() + 1 // add 1 to month because the month start in js with Zero(0)
+    let dateOfBirth = birthDate.getDate()
 
     // Today Date
 
     let today = new Date()
-    let todayYear = today.getFullYear()
-    let todayMonth = today.getMonth() + 1 // add 1 to month because the month start in js with Zero(0)
-    let todayDate = today.getDate()
+    let y2 = today.getFullYear()
+    let currentMonth = today.getMonth() + 1 // add 1 to month because the month start in js with Zero(0)
+    let currentDate = today.getDate()
 
 
-    let ageYear, ageMonth, ageDay
+    let y3, m3, ageDate
 
     // Year diffrence between the current year and birth year 
 
-    ageYear = todayYear - inputYear
+    y3 = y2 - yearOfBirth
 
     // Month  diffrence between the current Month and birth Month 
-    if (todayMonth >= inputMonth) {
+    if (currentMonth >= monthOfBirth) {
 
-        ageMonth = todayMonth - inputMonth
+        m3 = currentMonth - monthOfBirth
     }
     else {
-        todayYear--
-        ageMonth = 12 + todayMonth - inputMonth
+        y3-- 
+        m3 = 12 + currentMonth - monthOfBirth
     }
 
     // Day diffrence between the current day and birth day 
 
-    if (todayDate >= inputDate) {
-        ageDay = todayDate - inputDate
+    if (currentDate >= dateOfBirth) {
+        ageDate = currentDate - dateOfBirth
 
     }
     else {
-        ageMonth--
-        ageDate = (monthsDay(inputYear, inputMonth) + todayDate )- inputDate
+        m3--
+        ageDate = monthsDay(yearOfBirth, monthOfBirth) + currentDate - dateOfBirth
 
     }
 
-    if (ageMonth < 0) {
-        ageMonth = 11;
-        ageYear--
+    if (m3 < 0) {
+        m3 = 11;
+        y3--
     }
 
     function monthsDay(Year, Month) {
@@ -63,7 +63,7 @@ function calcAge() {
 
     age.style.visibility = ("visible")
 
-    age.innerHTML = `Your are ${ageYear} years , ${ageMonth} months and ${ageDay} days old...`
+    age.innerHTML = `Your are ${y3} years , ${m3} months and ${ageDate} days old...`
 
 
 
